@@ -1,4 +1,4 @@
-# MediaInfo Plugin Pre-Requisite Applications Mod
+# Emby MediaInfo Plugin Pre-Requisite Applications Mod
 
 Installs the appications required by the [MediaInfo Plugin](https://emby.media/community/index.php?/topic/108984-mediainfo-for-emby-pluginhdr-vision-atmos-dtsx/)
 
@@ -22,7 +22,7 @@ Optional:
 * BifTool Executables (also installs unzip to unpack)
 
 To include BifTools add an environment variable:
-  INCLUDE_BIFTOOL : FALSE
+  INCLUDE_BIFTOOL=FALSE
 
 
 Full example:
