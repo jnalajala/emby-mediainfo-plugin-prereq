@@ -35,7 +35,7 @@ if ! dpkg -s mediainfo >/dev/null 2>&1; then
 fi
 
 # Check for unzip 
-if [[! dpkg -s unzip >/dev/null 2>&1] && [ ${#INCLUDE_BIFTOOL}  != "FALSE" ]]; then
+if ! dpkg -s unzip >/dev/null 2>&1 &&  [${#INCLUDE_BIFTOOL}  != "FALSE"] ; then
     PACKAGES="unzip ${PACKAGES}"
 fi
 
@@ -45,12 +45,12 @@ if ! grep -q "mkvtoolnix" /etc/apt/sources.list; then
 	curl -o /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
 
 	# Add MKVToolNix repository
-	cd /etc/apt/sources.list.d
-	touch mkvtoolnix.download.list
-	cat > mkvtoolnix.download.list <<EOF
-	deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main
-	deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main
-	EOF
+	#cd /etc/apt/sources.list.d
+	#touch mkvtoolnix.download.list
+	#cat > mkvtoolnix.download.list <<EOF
+	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main
+	deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main" >> /etc/apt/sources.list.d/mkvtoolnix.download.list
+	#EOF
 fi
 
 # Check for mkvtoolnix Portable
@@ -69,9 +69,3 @@ if [ -n "${PACKAGES}" ]; then
 else
     echo "**** MediaInfo Plugin dependencies already installed, skipping ****"
 fi
-
-
-
-
-
-
