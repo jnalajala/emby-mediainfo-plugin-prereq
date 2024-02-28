@@ -7,10 +7,10 @@ This is based off of [Docker-MediaInfo-PreReq](https://github.com/MrLinford/Dock
 It will perform all of the setting up of the applications the MediaInfo plugin uses to read and modify your media files as per the first step of the initial setup process.
 
 > **Note**
-> It will not set anything up in Emby, this is left to the user to setup
+> It will not set anything up in Emby, this is left to the user to setup.
 > Everything is setup under /bin/
 
-Follow Cheesgeezer's wiki on how to use the plugin for details on how to do everything else.
+Follow [Cheesgeezer's wiki](https://github.com/Cheesegeezer/MediaInfoWiki/wiki) on how to use the plugin and how to setup everything else.
 
 Following will be installed:
 
@@ -31,7 +31,7 @@ docker run
 ```bash
 docker create \
   --name=emby \
-  -e DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest \
+  -e DOCKER_MODS=ghcr.io/simcity/emby-mediainfo-plugin-prereq:latest \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
@@ -49,7 +49,7 @@ services:
     image: linuxserver/emby:latest
     container_name: emby
     environment:
-      - DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest
+      - DOCKER_MODS=ghcr.io/simcity/emby-mediainfo-plugin-prereq:latest
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
