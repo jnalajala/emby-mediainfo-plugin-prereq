@@ -45,4 +45,4 @@ else
     echo "**** BifTool Executables already installed, skipping ****"
 fi
 
-echo "**** Configure Media toolbox Plugin with locations of applications as /bin/****"
+echo "**** Configure Media toolbox Plugin with locations of applications as /bin/ ****"
