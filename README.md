@@ -7,7 +7,7 @@ This is based off of [Docker-MediaInfo-PreReq](https://github.com/MrLinford/Dock
 It will perform all of the setting up of the applications the MediaInfo plugin uses to read and modify your media files as per the first step of the initial setup process.
 
 > **Note**
-> It will not set anything up in Emby, this is left to the user to setup
+> It will not set anything up in Emby, this is left to the user to setup.
 > Everything is setup under /bin/
 
 Follow [Cheesgeezer's wiki](https://github.com/Cheesegeezer/MediaInfoWiki/wiki) on how to use the plugin for details on how to do everything else.
