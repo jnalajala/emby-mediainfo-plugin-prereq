@@ -1,5 +1,5 @@
 #!/usr/bin/with-contenv bash
-if [[ ${#INCLUDE_BIFTOOL} == "FALSE" ]]; then
+if [[ ${#INCLUDE_BIFTOOL} != "TRUE" ]]; then
 	echo "**** Skipping BifTool Executables ****"
 	exit 0
 fi
@@ -45,4 +45,4 @@ else
     echo "**** BifTool Executables already installed, skipping ****"
 fi
 
-echo "**** Configure Media toolbox Plugin with locations of applications as /bin/ ****"
+echo "**** Configure MediaInfo Plugin with locations of applications as /bin/<app_name> ****"

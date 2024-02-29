@@ -34,13 +34,13 @@ if ! dpkg -s mediainfo >/dev/null 2>&1; then
     PACKAGES="mediainfo ${PACKAGES}"
 fi
 
-if [[ ${#INCLUDE_BIFTOOL} == "FALSE" ]]; then
-	echo "**** Skipping BifTool requirements ****"
-else
+if [[ ${#INCLUDE_BIFTOOL} == "TRUE" ]]; then
     # Check for unzip 
     if ! dpkg -s unzip >/dev/null 2>&1; then
         PACKAGES="unzip ${PACKAGES}"
     fi
+else
+	echo "**** Skipping BifTool requirements ****"
 fi
 
 # Check for MKVToolNix repository

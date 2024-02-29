@@ -10,7 +10,7 @@ It will perform all of the setting up of the applications the MediaInfo plugin u
 > It will not set anything up in Emby, this is left to the user to setup
 > Everything is setup under /bin/
 
-Follow Cheesgeezer's wiki on how to use the plugin for details on how to do everything else.
+Follow [Cheesgeezer's wiki](https://github.com/Cheesegeezer/MediaInfoWiki/wiki) on how to use the plugin for details on how to do everything else.
 
 Following will be installed:
 
@@ -21,8 +21,10 @@ Following will be installed:
 Optional:
 * BifTool Executables (also installs unzip to unpack)
 
-To include BifTools add an environment variable:
-  INCLUDE_BIFTOOL=FALSE
+If you wish to also use MediaInfo's BIF Generator, you will need to also add an environment variable to include BifTool so that this will be avaiable for use.
+
+To include BifTool add an environment variable:
+  INCLUDE_BIFTOOL=TRUE
 
 
 Full example:
@@ -32,6 +34,7 @@ docker run
 docker create \
   --name=emby \
   -e DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest \
+  -e INCLUDE_BIFTOOL=TRUE \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Europe/London \
@@ -50,6 +53,7 @@ services:
     container_name: emby
     environment:
       - DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest
+      - INCLUDE_BIFTOOL=TRUE #optional
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
