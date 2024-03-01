@@ -34,27 +34,21 @@ if ! dpkg -s mediainfo >/dev/null 2>&1; then
     PACKAGES="mediainfo ${PACKAGES}"
 fi
 
-if [[ ${#INCLUDE_BIFTOOL} == "TRUE" ]]; then
-    # Check for unzip 
-    if ! dpkg -s unzip >/dev/null 2>&1; then
-        PACKAGES="unzip ${PACKAGES}"
-    fi
-else
-	echo "**** Skipping BifTool requirements ****"
+
+# Check for unzip 
+if ! dpkg -s unzip >/dev/null 2>&1 && [[ ${#INCLUDE_BIFTOOL} == "TRUE" ]]; then
+    PACKAGES="unzip ${PACKAGES}"
 fi
 
+
 # Check for MKVToolNix repository
-if ! grep -q "mkvtoolnix" /etc/apt/sources.list; then
+if [ ! -e /etc/apt/sources.list.d/mkvtoolnix.download.list ] ; then
 	# Import MKVToolNix GPG key 
 	curl -o /usr/share/keyrings/gpg-pub-moritzbunkus.gpg https://mkvtoolnix.download/gpg-pub-moritzbunkus.gpg
 
 	# Add MKVToolNix repository
-	#cd /etc/apt/sources.list.d
-	#touch mkvtoolnix.download.list
-	#cat > mkvtoolnix.download.list <<EOF
 	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main
 	deb-src [arch=amd64 signed-by=/usr/share/keyrings/gpg-pub-moritzbunkus.gpg] https://mkvtoolnix.download/ubuntu/ jammy main" >> /etc/apt/sources.list.d/mkvtoolnix.download.list
-	#EOF
 fi
 
 # Check for mkvtoolnix Portable
