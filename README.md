@@ -26,6 +26,11 @@ If you wish to also use MediaInfo's BIF Generator, you will need to also add an 
 To include BifTool add an environment variable:
   INCLUDE_BIFTOOL=TRUE
 
+The Following locations are required to be entered into MediaInfos settings in the relevant fields:
+* /bin/mediainfo
+* /bin/mkvpropedit
+* /bin/biftool
+
 
 Full example:
 
