@@ -33,7 +33,7 @@ docker run
 ```bash
 docker create \
   --name=emby \
-  -e DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest \
+  -e DOCKER_MODS=ghcr.io/simcity/emby-mediainfo-plugin-prereq:latest \
   -e INCLUDE_BIFTOOL=TRUE \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -52,7 +52,7 @@ services:
     image: linuxserver/emby:latest
     container_name: emby
     environment:
-      - DOCKER_MODS=simcity/emby-mediainfo-plugin-prereq:latest
+      - DOCKER_MODS=ghcr.io/simcity/emby-mediainfo-plugin-prereq:latest
       - INCLUDE_BIFTOOL=TRUE #optional
       - PUID=1000
       - PGID=1000

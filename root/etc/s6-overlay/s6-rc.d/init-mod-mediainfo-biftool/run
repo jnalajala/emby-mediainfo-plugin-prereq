@@ -44,5 +44,3 @@ if [ ! -e /bin/biftool ] || [ ! -e /bin/biftool_processor ]; then
 else
     echo "**** BifTool Executables already installed, skipping ****"
 fi
-
-echo "**** Configure MediaInfo Plugin with locations of applications as /bin/<app_name> ****"
