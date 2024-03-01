@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
-if [[ ${#INCLUDE_BIFTOOL} != "TRUE" ]]; then
+if [[ ${INCLUDE_BIFTOOL} != "TRUE" ]]; then
+
+    echo "INCLUDE_BIFTOOL = ${INCLUDE_BIFTOOL} "
 	echo "**** Skipping BifTool Executables ****"
 	exit 0
 fi
